@@ -1,0 +1,30 @@
+{
+	"manifest_version":2,
+	"name":"Custom Background",
+	"description":"Apply custom background to the chrome tab.",
+	"version":"1.0",
+	"icons":{
+		"16":"./wallpaper.png"
+	},
+	"page_action":{
+		"default_popup":"popup.html",
+		"default_icon":"./wallpaper.png",
+		"default_title":"Custom Background"
+	},
+	"background":{
+		"scripts": [
+			"eventPage.js"
+		],
+		"persistent":false
+	},
+	"content_scripts":[
+		{
+			"matches":["<all_urls>"],
+			"js":["content.js", "jquery-3.6.0.min.js"]
+		}
+	],
+	"permissions":[
+		"tabs",
+		"storage"
+	]
+}
